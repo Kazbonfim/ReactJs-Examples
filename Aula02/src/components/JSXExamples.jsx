@@ -24,12 +24,14 @@ const JSXExamples = () => {
         return nome
     }
 
+    const userIsOnline = true;
+
     return (
         <div className='container text-dark text-center'>
             <h4>Podemos criar variáveis FORA do return de cada componente, assim, esses dados podem ser acessados pela propriedade DENTRO do return a qualquer momento!</h4>
             <hr />
 
-            {/* Alinha os cards na mesma linha usando Flexbox */}
+            {/* Exibindo propriedades JS dentro de elementos HTML */}
             <div className='d-flex justify-content-around'>
                 {/* Card para o Pikachu */}
                 <div className="card" style={{ width: '18em' }}>
@@ -67,9 +69,49 @@ const JSXExamples = () => {
 
             <hr />
 
+            {/* Usando as funções simples do HTML dentro de elementos em JSX */}
             <div>
-                <h1>Olá, {falarNome(pokemon1.name)}</h1>
+                <h1>Olá, {falarNome(pokemon1.name)}!</h1>
+                <br />
+                <div className="container d-flex justify-content-evenly">
+                    <button onClick={() => { alert(`Você escolheu o ${pokemon1.name}`) }} className="btn btn-success">
+                        Pegar
+                    </button>
+                    <button onClick={() => { alert(`Você escolheu o ${pokemon2.name}`) }} className="btn btn-success">
+                        Pegar
+                    </button>
+                    <button onClick={() => { alert(`Você escolheu o ${pokemon3.name}`) }} className="btn btn-success">
+                        Pegar
+                    </button>
+                </div>
             </div>
+
+            <hr />
+
+            {/* Graças a Deus, existem condições aqui como existe no  Handlebars!!! */}
+            <div className='container mb-5'>
+                <h1>Usuário está Online?</h1>
+                <br />
+                <div className='container d-flex justify-content-evenly'>
+                    {/* Para comparar é bem simples, basta usar um comparador ternário: {if condicao ? sim : nao} */}
+                    {userIsOnline ? (
+                        <div>
+                            <button className="btn btn-success" type="button" disabled>
+                                <span className="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
+                                <span className='ms-2' role="status">Online</span>
+                            </button>
+                        </div>
+                    ) : (
+                        <div>
+                            <button className="btn btn-danger" type="button" disabled>
+                                <span className="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
+                                <span className='ms-2' role="status">Offline</span>
+                            </button>
+                        </div>
+                    )}
+                </div>
+            </div>
+
         </div>
     )
 }
