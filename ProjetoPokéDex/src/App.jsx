@@ -1,6 +1,5 @@
 // Componente Pai
 // Componente Filho
-import JSXExamples from "./components/JSXExamples";
 import Header from './components/Header';
 import PokemonCards from "./components/PokemonCards";
 
